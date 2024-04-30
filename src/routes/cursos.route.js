@@ -11,17 +11,7 @@ cursoRoutes.post('/', auth,  CursoController.cadastrar)
 
 cursoRoutes.get('/', auth, CursoController.listar)
 
-cursoRoutes.delete('/:id', auth, (req, res) => {
-    const { id } = req.params
-
-    Curso.destroy({
-        where: {
-            id: id
-        }
-    }) // DELETE cursos from cursos where id = 1
-
-    res.status(204).json({})
-})
+cursoRoutes.delete('/:id', auth, )
 
 
 cursoRoutes.put('/:id', auth, async (req, res) => {
