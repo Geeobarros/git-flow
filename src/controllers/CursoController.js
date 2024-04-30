@@ -56,6 +56,27 @@ class CursoController {
             res.status(500).json({ error: 'Não possível cadastrar o curso' })
         }  
     }
+
+    //ex:4
+    async deletar(req, res){
+        const id = req.params.id //DELETE FROM CURSOS WHERE ID=X
+    try {
+        await Curso.destroy({
+            where:{
+                id
+            }
+        })
+    
+        return res.status(204).json({messagem: 'deleted'})
+        
+    } catch (error) {
+        if (!id){
+            return res.status(404).json({error:"Id do curso não encontrado"})
+        }
+        
+    }
+    }
+
 }
 
 module.exports = new CursoController()
